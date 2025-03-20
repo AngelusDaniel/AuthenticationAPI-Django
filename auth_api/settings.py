@@ -14,6 +14,7 @@ import sys
 from os import getenv, path
 from pathlib import Path
 
+import dj_database_url
 import dotenv
 from django.core.management.utils import get_random_secret_key
 
@@ -176,8 +177,8 @@ else:
     AWS_MEDIA_LOCATION = 'media'
     AWS_S3_CUSTOM_DOMAIN = getenv('AWS_S3_CUSTOM_DOMAIN')
     STORAGES = {
-        'default': {'BACKEND': 'custom_storages.CustomS3Boto3Storage'},
-        'staticfiles': {'BACKEND': 'storages.backends.s3boto3.S3StaticStorage'}
+        'default': {'BACKEND': 'storages.backends.s3boto3.S3Boto3Storage'},
+        'staticfiles': {'BACKEND': 'storages.backends.s3boto3.S3Boto3Storage'}
     }
 
 AUTHENTICATION_BACKENDS = [
