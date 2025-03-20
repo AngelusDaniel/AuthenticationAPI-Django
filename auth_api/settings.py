@@ -176,10 +176,20 @@ else:
     AWS_LOCATION = 'static'
     AWS_MEDIA_LOCATION = 'media'
     AWS_S3_CUSTOM_DOMAIN = getenv('AWS_S3_CUSTOM_DOMAIN')
-    STORAGES = {
-        'default': {'BACKEND': 'storages.backends.s3boto3.S3Boto3Storage'},
-        'staticfiles': {'BACKEND': 'storages.backends.s3boto3.S3Boto3Storage'}
-    }
+STORAGES = {
+    "default": {
+        "BACKEND": "storages.backends.s3.S3Storage",
+        "OPTIONS": {
+            # suas opções aqui
+        },
+    },
+    "staticfiles": {
+        "BACKEND": "storages.backends.s3.S3Storage",
+        "OPTIONS": {
+            # suas opções aqui
+        },
+    },
+}
 
 AUTHENTICATION_BACKENDS = [
     'social_core.backends.google.GoogleOAuth2',
