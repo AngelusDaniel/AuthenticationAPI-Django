@@ -9,6 +9,7 @@ https://docs.djangoproject.com/en/5.1/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.1/ref/settings/
 """
+import os
 from os import getenv, path
 from pathlib import Path
 
@@ -163,6 +164,7 @@ if DEVELOPMENT_MODE is True:
 else: 
     AWS_S3_ACCESS_KEY_ID = getenv("AWS_S3_ACCESS_KEY_ID")
     AWS_S3_SECRET_ACCESS_KEY = getenv("AWS_S3_SECRET_ACCESS_KEY")
+    AWS_STORAGE_BUCKET_NAME = getenv("AWS_STORAGE_BUCKET_NAME")
     AWS_S3_REGION_NAME = getenv("AWS_S3_REGION_NAME")
     AWS_S3_ENDPOINT_URL = f"https://{AWS_S3_REGION_NAME}.digitaloceanspaces.com"
     AWS_S3_OBJECTS_PARAMTERS = {"CacheControl": "max-age=86400"}
